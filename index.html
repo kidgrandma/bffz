@@ -60,26 +60,28 @@
       border: 2px solid #ff0080;
       border-radius: 50px;
       font-size: 24px;
+      font-family: 'Bebas Neue', sans-serif;
       text-shadow: 0 0 8px #ff0080;
       transition: transform 0.3s ease;
       max-width: 100%;
       overflow-wrap: break-word;
-      animation: pulseGlow 3s infinite;
+      /* Slide in from left and pulse */
+      animation: slideIn 1s ease-out forwards, pulseGlow 1.5s infinite;
+      opacity: 0;
     }
     .handle:hover {
       transform: scale(1.05);
     }
     /* Pulsing Glow Animation */
     @keyframes pulseGlow {
-      0% {
-        text-shadow: 0 0 8px #ff0080, 0 0 10px #ff0080;
-      }
-      50% {
-        text-shadow: 0 0 20px #ff0080, 0 0 30px #ff0080;
-      }
-      100% {
-        text-shadow: 0 0 8px #ff0080, 0 0 10px #ff0080;
-      }
+      0% { text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080; }
+      50% { text-shadow: 0 0 25px #ff0080, 0 0 35px #ff0080; }
+      100% { text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080; }
+    }
+    /* Slide In Animation */
+    @keyframes slideIn {
+      0% { opacity: 0; transform: translateX(-50px); }
+      100% { opacity: 1; transform: translateX(0); }
     }
     /* Unassigned Styling */
     .unassigned-section {
@@ -103,8 +105,11 @@
       padding: 10px 15px;
       border-radius: 20px;
       font-size: 20px;
+      font-family: 'Bebas Neue', sans-serif;
       text-shadow: 0 0 5px #00ffff;
       transition: transform 0.3s ease;
+      animation: slideIn 1s ease-out forwards, pulseGlow 1.5s infinite;
+      opacity: 0;
     }
     .unassigned-item:hover {
       transform: scale(1.05);
@@ -114,7 +119,7 @@
       h1 {
         font-size: 56px;
       }
-      .handle {
+      .handle, .unassigned-item {
         font-size: 20px;
         padding: 8px 16px;
       }
@@ -224,7 +229,7 @@
     <section class="unassigned-section">
       <h3>Unassigned</h3>
       <div class="unassigned-grid">
-        <div class="unassigned-item">@nataliesomekh_ 🫨</div>
+        <div class="unassigned-item">@nataliesomekh_ </div>
         <div class="unassigned-item">@fatti_smith</div>
         <div class="unassigned-item">@chelsea_lelito</div>
         <div class="unassigned-item">@getyohairdid</div>
