@@ -4,100 +4,129 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>BUDDY™️</title>
-  <link rel="icon" href="images/favicon.io">
-  <!-- Bebas Neue Font -->
+  <link rel="icon" href="images/favicon.io" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
-    /* Global Styles */
-    body {
+    /* Reset & Global Styles */
+    * {
       margin: 0;
       padding: 0;
-      background: url('bff.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: Arial, sans-serif;
-      color: #fff;
+      box-sizing: border-box;
     }
-    header {
+    body {
+      font-family: Arial, sans-serif;
+      background: url('images/bff.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
       text-align: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.5);
+    }
+    header {
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.6);
+      margin-bottom: 30px;
     }
     h1 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 64px;
-      margin: 10px 0;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      text-shadow: 0 0 10px #ff0080;
+      margin-bottom: 10px;
     }
     h2 {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 32px;
-      margin: 10px 0;
-      text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 36px;
+      text-shadow: 0 0 10px #00ffff;
     }
-    /* Container for Cards */
-    .container {
+    /* Buddy Pair Styling */
+    .buddy-container {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 50px;
+    }
+    .buddy-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .emoji-large {
+      font-size: 64px;
+      margin-bottom: 10px;
+      text-shadow: 0 0 10px #ff0080;
+    }
+    .buddy-pair {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .handle {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border: 2px solid #ff0080;
+      border-radius: 50px;
+      font-size: 24px;
+      text-shadow: 0 0 8px #ff0080;
+      transition: transform 0.3s ease;
+    }
+    .handle:hover {
+      transform: scale(1.05);
+    }
+    .connector {
+      font-size: 32px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
+    }
+    /* Unassigned Styling */
+    .unassigned-section {
+      margin-top: 50px;
+    }
+    .unassigned-section h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 48px;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #ff0080;
+    }
+    .unassigned-grid {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      padding: 20px;
+      gap: 15px;
     }
-    /* Buddy Card Style */
-    .card {
-      background: rgba(0, 0, 0, 0.7);
-      border: 2px solid #ff00ff;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 10px;
-      text-align: center;
-      font-size: 24px;
-      box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
-      flex: 1 1 300px;
-      max-width: 300px;
+    .unassigned-item {
+      background: rgba(0, 0, 0, 0.5);
+      border: 2px dashed #00ffff;
+      padding: 10px 15px;
+      border-radius: 20px;
+      font-size: 20px;
+      text-shadow: 0 0 5px #00ffff;
       transition: transform 0.3s ease;
     }
-    .card:hover {
+    .unassigned-item:hover {
       transform: scale(1.05);
     }
-    .emoji {
-      font-size: 48px;
-      margin-bottom: 10px;
-    }
-    .pair-names {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-    }
-    .pair-names span {
-      display: block;
-    }
-    /* Unassigned Card Style */
-    .unassigned {
-      background: rgba(0, 0, 0, 0.7);
-      border: 2px dashed #00ffff;
-      border-radius: 10px;
-      padding: 20px;
-      margin: 10px;
-      text-align: center;
-      font-size: 20px;
-      flex: 1 1 300px;
-      max-width: 300px;
-    }
-    .unassigned h3 {
-      margin-top: 0;
-      font-family: 'Bebas Neue', cursive;
-      font-size: 32px;
-    }
-    /* Mobile Optimization */
+    /* Responsive */
     @media (max-width: 600px) {
       h1 {
-        font-size: 48px;
+        font-size: 56px;
       }
       h2 {
-        font-size: 24px;
+        font-size: 28px;
       }
-      .card, .unassigned {
-        max-width: 90%;
+      .handle {
+        font-size: 20px;
+        padding: 8px 16px;
+      }
+      .connector {
+        font-size: 28px;
+      }
+      .emoji-large {
+        font-size: 48px;
+      }
+      .unassigned-section h3 {
+        font-size: 36px;
+      }
+      .unassigned-item {
+        font-size: 18px;
       }
     }
   </style>
@@ -107,119 +136,129 @@
     <h1>BUDDY™️</h1>
     <h2>your BUDDY™️ is not your friend 🧸</h2>
   </header>
-
+  
   <main>
-    <!-- BUDDY™️ Pairs Section -->
-    <section class="container" id="buddyPairs">
-      <div class="card">
-        <div class="emoji">🪩</div>
-        <div class="pair-names">
-          <span>@minervoussystem</span>
-          <span>&lt;3</span>
-          <span>@manolowashere</span>
+    <!-- Buddy™️ Pairs -->
+    <section class="buddy-container">
+      <!-- Pair 1: 🪩 -->
+      <div class="buddy-group">
+        <div class="emoji-large">🪩</div>
+        <div class="buddy-pair">
+          <div class="handle">@minervoussystem</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@manolowashere</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">🦝</div>
-        <div class="pair-names">
-          <span>@andreamhwang</span>
-          <span>&lt;3</span>
-          <span>@harpdigitalmedia</span>
+      <!-- Pair 2: 🦝 -->
+      <div class="buddy-group">
+        <div class="emoji-large">🦝</div>
+        <div class="buddy-pair">
+          <div class="handle">@andreamhwang</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@harpdigitalmedia</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">🖕🏽</div>
-        <div class="pair-names">
-          <span>@littleurbanachiever</span>
-          <span>&lt;3</span>
-          <span>@downtown.dave</span>
+      <!-- Pair 3: 🖕🏽 -->
+      <div class="buddy-group">
+        <div class="emoji-large">🖕🏽</div>
+        <div class="buddy-pair">
+          <div class="handle">@littleurbanachiever</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@downtown.dave</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">👽</div>
-        <div class="pair-names">
-          <span>@dresden____</span>
-          <span>&lt;3</span>
-          <span>@gianennio</span>
+      <!-- Pair 4: 👽 -->
+      <div class="buddy-group">
+        <div class="emoji-large">👽</div>
+        <div class="buddy-pair">
+          <div class="handle">@dresden____</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@gianennio</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">🍄</div>
-        <div class="pair-names">
-          <span>@octavekitten</span>
-          <span>&lt;3</span>
-          <span>@mfgarrett</span>
+      <!-- Pair 5: 🍄 -->
+      <div class="buddy-group">
+        <div class="emoji-large">🍄</div>
+        <div class="buddy-pair">
+          <div class="handle">@octavekitten</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@mfgarrett</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">❤️‍🔥</div>
-        <div class="pair-names">
-          <span>@kunaalarya</span>
-          <span>&lt;3</span>
-          <span>@michaelmelwani</span>
+      <!-- Pair 6: ❤️‍🔥 -->
+      <div class="buddy-group">
+        <div class="emoji-large">❤️‍🔥</div>
+        <div class="buddy-pair">
+          <div class="handle">@kunaalarya</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@michaelmelwani</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">🥊</div>
-        <div class="pair-names">
-          <span>@taystaystayt</span>
-          <span>&lt;3</span>
-          <span>@bewixt.frankie</span>
+      <!-- Pair 7: 🥊 -->
+      <div class="buddy-group">
+        <div class="emoji-large">🥊</div>
+        <div class="buddy-pair">
+          <div class="handle">@taystaystayt</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@bewixt.frankie</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">💃</div>
-        <div class="pair-names">
-          <span>@heidydsantos</span>
-          <span>&lt;3</span>
-          <span>@kimiajanesar</span>
+      <!-- Pair 8: 💃 -->
+      <div class="buddy-group">
+        <div class="emoji-large">💃</div>
+        <div class="buddy-pair">
+          <div class="handle">@heidydsantos</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@kimiajanesar</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">🍤</div>
-        <div class="pair-names">
-          <span>@missmallorylovings</span>
-          <span>&lt;3</span>
-          <span>@lielacsky</span>
+      <!-- Pair 9: 🍤 -->
+      <div class="buddy-group">
+        <div class="emoji-large">🍤</div>
+        <div class="buddy-pair">
+          <div class="handle">@missmallorylovings</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@lielacsky</div>
         </div>
       </div>
-      <div class="card">
-        <div class="emoji">🧞‍♀️</div>
-        <div class="pair-names">
-          <span>@randeecw_</span>
-          <span>&lt;3</span>
-          <span>@kemeyuh</span>
+      <!-- Pair 10: 🧞‍♀️ -->
+      <div class="buddy-group">
+        <div class="emoji-large">🧞‍♀️</div>
+        <div class="buddy-pair">
+          <div class="handle">@randeecw_</div>
+          <div class="connector">&lt;3</div>
+          <div class="handle">@kemeyuh</div>
         </div>
       </div>
     </section>
-
-    <!-- Unassigned Handles Section -->
-    <section class="container" id="unassigned">
-      <div class="unassigned">
-        <h3>Unassigned</h3>
-        <p>@nataliesomekh_ 🫨</p>
-        <p>@fatti_smith</p>
-        <p>@chelsea_lelito</p>
-        <p>@getyohairdid</p>
-        <p>@dicken.salada</p>
-        <p>@plascau</p>
-        <p>@stevenbloodbath</p>
-        <p>@theemikebdj</p>
-        <p>@mokibaby</p>
-        <p>@_marcusfrye</p>
-        <p>@thecarolinerice</p>
-        <p>@copyrightcollin</p>
-        <p>@danielhpatton</p>
-        <p>@evansheldonn</p>
-        <p>@ladyhuss_</p>
-        <p>@jahan</p>
-        <p>@keithwalsky</p>
-        <p>@markcruz1</p>
-        <p>@maui_lives</p>
-        <p>@pyrorico</p>
-        <p>@creativevice</p>
-        <p>@theprofound_solo</p>
-        <p>@sjimenez05</p>
+    
+    <!-- Unassigned Handles -->
+    <section class="unassigned-section">
+      <h3>Unassigned</h3>
+      <div class="unassigned-grid">
+        <div class="unassigned-item">@nataliesomekh_ 🫨</div>
+        <div class="unassigned-item">@fatti_smith</div>
+        <div class="unassigned-item">@chelsea_lelito</div>
+        <div class="unassigned-item">@getyohairdid</div>
+        <div class="unassigned-item">@dicken.salada</div>
+        <div class="unassigned-item">@plascau</div>
+        <div class="unassigned-item">@stevenbloodbath</div>
+        <div class="unassigned-item">@theemikebdj</div>
+        <div class="unassigned-item">@mokibaby</div>
+        <div class="unassigned-item">@_marcusfrye</div>
+        <div class="unassigned-item">@thecarolinerice</div>
+        <div class="unassigned-item">@copyrightcollin</div>
+        <div class="unassigned-item">@danielhpatton</div>
+        <div class="unassigned-item">@evansheldonn</div>
+        <div class="unassigned-item">@ladyhuss_</div>
+        <div class="unassigned-item">@jahan</div>
+        <div class="unassigned-item">@keithwalsky</div>
+        <div class="unassigned-item">@markcruz1</div>
+        <div class="unassigned-item">@maui_lives</div>
+        <div class="unassigned-item">@pyrorico</div>
+        <div class="unassigned-item">@creativevice</div>
+        <div class="unassigned-item">@theprofound_solo</div>
+        <div class="unassigned-item">@sjimenez05</div>
       </div>
     </section>
   </main>
