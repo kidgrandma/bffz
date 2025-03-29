@@ -3,16 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="BUDDY™️" />
-<meta property="og:description" content="🧸" />
-<meta property="og:image" content="https://kidgrandma.github.io/bffz/images/bff.jpg" />
-<meta property="og:url" content="https://kidgrandma.github.io/bffz" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
   <title>BUDDY™️</title>
   <link rel="icon" href="images/favicon.io" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
- <style>
+  <style>
     /* Reset & Global Styles */
     * {
       margin: 0;
@@ -57,7 +51,6 @@
     .emoji-large {
       font-size: 64px;
       margin-bottom: 10px;
-      /* Base glow (will be overridden by group-specific color) */
       text-shadow: 0 0 10px #ff0080;
     }
     .buddy-pair {
@@ -68,73 +61,74 @@
       justify-content: center;
     }
     .handle {
-      background: rgba(0, 0, 0, 0.5);
+      background: rgba(0, 0, 0, 0.7);
       padding: 10px 20px;
-      border: 2px solid #ff0080; /* Default; will be overridden */
+      border: 2px solid #ff0080; /* default; overridden below */
       border-radius: 50px;
       font-size: 24px;
       font-family: 'Bebas Neue', sans-serif;
+      color: #fff;  /* All text remains white */
       transition: transform 0.3s ease;
       max-width: 100%;
       overflow-wrap: break-word;
       opacity: 0;
-      /* Slide-in & pulsing glow animations */
+      /* Slide-in & pulsing glow using a custom variable for glow color */
       animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
     }
     .handle:hover {
       transform: scale(1.05);
     }
-    /* Intense Pulsing Glow Animation */
+    /* More subtle Pulsing Glow Animation using --glow-color */
     @keyframes pulseGlow {
-      0% { text-shadow: 0 0 2px currentColor, 0 0 4px currentColor; }
-      50% { text-shadow: 0 0 30px currentColor, 0 0 40px currentColor; }
-      100% { text-shadow: 0 0 2px currentColor, 0 0 4px currentColor; }
+      0% { text-shadow: 0 0 2px var(--glow-color, #ff0080), 0 0 4px var(--glow-color, #ff0080); }
+      50% { text-shadow: 0 0 8px var(--glow-color, #ff0080), 0 0 12px var(--glow-color, #ff0080); }
+      100% { text-shadow: 0 0 2px var(--glow-color, #ff0080), 0 0 4px var(--glow-color, #ff0080); }
     }
     /* Slide-In Animation */
     @keyframes slideIn {
       0% { opacity: 0; transform: translateX(-50px); }
       100% { opacity: 1; transform: translateX(0); }
     }
-    /* Colorful Buddy Pair Overrides */
+    /* Glow Overrides for Buddy Pairs: only border and glow change */
     .buddy-container .buddy-group:nth-child(1) .handle {
       border-color: #ff0080;
-      color: #ff0080;
+      --glow-color: #ff0080;
     }
     .buddy-container .buddy-group:nth-child(2) .handle {
       border-color: #00ffff;
-      color: #00ffff;
+      --glow-color: #00ffff;
     }
     .buddy-container .buddy-group:nth-child(3) .handle {
       border-color: #ffff00;
-      color: #ffff00;
+      --glow-color: #ffff00;
     }
     .buddy-container .buddy-group:nth-child(4) .handle {
       border-color: #ff00ff;
-      color: #ff00ff;
+      --glow-color: #ff00ff;
     }
     .buddy-container .buddy-group:nth-child(5) .handle {
       border-color: #00ff00;
-      color: #00ff00;
+      --glow-color: #00ff00;
     }
     .buddy-container .buddy-group:nth-child(6) .handle {
       border-color: #ff6600;
-      color: #ff6600;
+      --glow-color: #ff6600;
     }
     .buddy-container .buddy-group:nth-child(7) .handle {
       border-color: #66ff66;
-      color: #66ff66;
+      --glow-color: #66ff66;
     }
     .buddy-container .buddy-group:nth-child(8) .handle {
       border-color: #66ccff;
-      color: #66ccff;
+      --glow-color: #66ccff;
     }
     .buddy-container .buddy-group:nth-child(9) .handle {
       border-color: #ff99cc;
-      color: #ff99cc;
+      --glow-color: #ff99cc;
     }
     .buddy-container .buddy-group:nth-child(10) .handle {
       border-color: #cc66ff;
-      color: #cc66ff;
+      --glow-color: #cc66ff;
     }
     /* Unassigned Section Styling */
     .unassigned-section {
@@ -153,12 +147,13 @@
       gap: 15px;
     }
     .unassigned-item {
-      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+      background: rgba(0, 0, 0, 0.7);
       border: 2px dashed #00ff99;
       padding: 10px 15px;
       border-radius: 20px;
       font-size: 20px;
       font-family: 'Bebas Neue', sans-serif;
+      color: #fff;
       transition: transform 0.3s ease;
       opacity: 0;
       animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
