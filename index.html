@@ -57,7 +57,9 @@
     .buddy-pair {
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .handle {
       background: rgba(0, 0, 0, 0.5);
@@ -67,6 +69,9 @@
       font-size: 24px;
       text-shadow: 0 0 8px #ff0080;
       transition: transform 0.3s ease;
+      max-width: 100%;
+      overflow-wrap: break-word;
+      animation: pulseGlow 3s infinite;
     }
     .handle:hover {
       transform: scale(1.05);
@@ -75,6 +80,19 @@
       font-size: 32px;
       color: #00ffff;
       text-shadow: 0 0 10px #00ffff;
+      animation: pulseGlow 3s infinite;
+    }
+    /* Pulsing Glow Animation */
+    @keyframes pulseGlow {
+      0% {
+        text-shadow: 0 0 8px #ff0080, 0 0 10px #ff0080;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff0080, 0 0 30px #ff0080;
+      }
+      100% {
+        text-shadow: 0 0 8px #ff0080, 0 0 10px #ff0080;
+      }
     }
     /* Unassigned Styling */
     .unassigned-section {
@@ -104,7 +122,7 @@
     .unassigned-item:hover {
       transform: scale(1.05);
     }
-    /* Responsive */
+    /* Responsive Adjustments */
     @media (max-width: 600px) {
       h1 {
         font-size: 56px;
