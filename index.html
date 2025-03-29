@@ -12,14 +12,14 @@
   <title>BUDDY™️</title>
   <link rel="icon" href="images/favicon.io" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <style>
+ <style>
     /* Reset & Global Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    /* Remove padding from body to allow seamless background tiling */
+    /* Tiled, inverted background for all devices with no extra gaps */
     body {
       margin: 0;
       padding: 0;
@@ -29,7 +29,7 @@
       color: #fff;
       text-align: center;
     }
-    /* Wrapper for content with padding */
+    /* Wrapper for page content with padding */
     .wrapper {
       padding: 20px;
     }
@@ -57,6 +57,7 @@
     .emoji-large {
       font-size: 64px;
       margin-bottom: 10px;
+      /* Base glow (will be overridden by group-specific color) */
       text-shadow: 0 0 10px #ff0080;
     }
     .buddy-pair {
@@ -69,7 +70,7 @@
     .handle {
       background: rgba(0, 0, 0, 0.5);
       padding: 10px 20px;
-      border: 2px solid #ff0080;
+      border: 2px solid #ff0080; /* Default; will be overridden */
       border-radius: 50px;
       font-size: 24px;
       font-family: 'Bebas Neue', sans-serif;
@@ -77,7 +78,7 @@
       max-width: 100%;
       overflow-wrap: break-word;
       opacity: 0;
-      /* Combine slide-in and pulsing glow */
+      /* Slide-in & pulsing glow animations */
       animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
     }
     .handle:hover {
@@ -85,16 +86,57 @@
     }
     /* Intense Pulsing Glow Animation */
     @keyframes pulseGlow {
-      0% { text-shadow: 0 0 2px #ff0080, 0 0 4px #ff0080; }
-      50% { text-shadow: 0 0 30px #ff0080, 0 0 40px #ff0080; }
-      100% { text-shadow: 0 0 2px #ff0080, 0 0 4px #ff0080; }
+      0% { text-shadow: 0 0 2px currentColor, 0 0 4px currentColor; }
+      50% { text-shadow: 0 0 30px currentColor, 0 0 40px currentColor; }
+      100% { text-shadow: 0 0 2px currentColor, 0 0 4px currentColor; }
     }
     /* Slide-In Animation */
     @keyframes slideIn {
       0% { opacity: 0; transform: translateX(-50px); }
       100% { opacity: 1; transform: translateX(0); }
     }
-    /* Unassigned Styling */
+    /* Colorful Buddy Pair Overrides */
+    .buddy-container .buddy-group:nth-child(1) .handle {
+      border-color: #ff0080;
+      color: #ff0080;
+    }
+    .buddy-container .buddy-group:nth-child(2) .handle {
+      border-color: #00ffff;
+      color: #00ffff;
+    }
+    .buddy-container .buddy-group:nth-child(3) .handle {
+      border-color: #ffff00;
+      color: #ffff00;
+    }
+    .buddy-container .buddy-group:nth-child(4) .handle {
+      border-color: #ff00ff;
+      color: #ff00ff;
+    }
+    .buddy-container .buddy-group:nth-child(5) .handle {
+      border-color: #00ff00;
+      color: #00ff00;
+    }
+    .buddy-container .buddy-group:nth-child(6) .handle {
+      border-color: #ff6600;
+      color: #ff6600;
+    }
+    .buddy-container .buddy-group:nth-child(7) .handle {
+      border-color: #66ff66;
+      color: #66ff66;
+    }
+    .buddy-container .buddy-group:nth-child(8) .handle {
+      border-color: #66ccff;
+      color: #66ccff;
+    }
+    .buddy-container .buddy-group:nth-child(9) .handle {
+      border-color: #ff99cc;
+      color: #ff99cc;
+    }
+    .buddy-container .buddy-group:nth-child(10) .handle {
+      border-color: #cc66ff;
+      color: #cc66ff;
+    }
+    /* Unassigned Section Styling */
     .unassigned-section {
       margin-top: 50px;
     }
@@ -111,8 +153,8 @@
       gap: 15px;
     }
     .unassigned-item {
-      background: rgba(0, 0, 0, 0.5);
-      border: 2px dashed #00ffff;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(20, 20, 40, 0.8));
+      border: 2px dashed #00ff99;
       padding: 10px 15px;
       border-radius: 20px;
       font-size: 20px;
@@ -120,6 +162,7 @@
       transition: transform 0.3s ease;
       opacity: 0;
       animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
+      text-shadow: 0 0 10px #00ff99;
     }
     .unassigned-item:hover {
       transform: scale(1.05);
@@ -240,7 +283,7 @@
       <section class="unassigned-section">
         <h3>Unassigned</h3>
         <div class="unassigned-grid">
-          <div class="unassigned-item">@nataliesomekh_ 🫨</div>
+          <div class="unassigned-item">@nataliesomekh_ </div>
           <div class="unassigned-item">@fatti_smith</div>
           <div class="unassigned-item">@chelsea_lelito</div>
           <div class="unassigned-item">@getyohairdid</div>
