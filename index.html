@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your BUDDY™️ is not your friend</title>
+  <title>BUDDY™️</title>
   <link rel="icon" href="images/favicon.io" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <style>
@@ -61,22 +61,21 @@
       border-radius: 50px;
       font-size: 24px;
       font-family: 'Bebas Neue', sans-serif;
-      text-shadow: 0 0 8px #ff0080;
       transition: transform 0.3s ease;
       max-width: 100%;
       overflow-wrap: break-word;
-      /* Slide in from left and pulse */
-      animation: slideIn 1s ease-out forwards, pulseGlow 1.5s infinite;
       opacity: 0;
+      /* Combine slide in and pulsing glow */
+      animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
     }
     .handle:hover {
       transform: scale(1.05);
     }
-    /* Pulsing Glow Animation */
+    /* More intense Pulsing Glow Animation */
     @keyframes pulseGlow {
-      0% { text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080; }
-      50% { text-shadow: 0 0 25px #ff0080, 0 0 35px #ff0080; }
-      100% { text-shadow: 0 0 5px #ff0080, 0 0 10px #ff0080; }
+      0% { text-shadow: 0 0 2px #ff0080, 0 0 4px #ff0080; }
+      50% { text-shadow: 0 0 30px #ff0080, 0 0 40px #ff0080; }
+      100% { text-shadow: 0 0 2px #ff0080, 0 0 4px #ff0080; }
     }
     /* Slide In Animation */
     @keyframes slideIn {
@@ -106,10 +105,9 @@
       border-radius: 20px;
       font-size: 20px;
       font-family: 'Bebas Neue', sans-serif;
-      text-shadow: 0 0 5px #00ffff;
       transition: transform 0.3s ease;
-      animation: slideIn 1s ease-out forwards, pulseGlow 1.5s infinite;
       opacity: 0;
+      animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
     }
     .unassigned-item:hover {
       transform: scale(1.05);
@@ -131,6 +129,12 @@
       }
       .unassigned-item {
         font-size: 18px;
+      }
+      /* Mobile Background: Tiled, natural size and inverted */
+      body {
+        background: url('images/bff.jpg') repeat;
+        background-size: auto;
+        filter: invert(1);
       }
     }
   </style>
@@ -229,7 +233,7 @@
     <section class="unassigned-section">
       <h3>Unassigned</h3>
       <div class="unassigned-grid">
-        <div class="unassigned-item">@nataliesomekh_ </div>
+        <div class="unassigned-item">@nataliesomekh_ 🫨</div>
         <div class="unassigned-item">@fatti_smith</div>
         <div class="unassigned-item">@chelsea_lelito</div>
         <div class="unassigned-item">@getyohairdid</div>
