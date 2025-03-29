@@ -13,7 +13,7 @@
       padding: 0;
       box-sizing: border-box;
     }
-    /* Remove padding from body to allow seamless background tiling */
+    /* Remove body padding so the background tiles seamlessly */
     body {
       margin: 0;
       padding: 0;
@@ -23,7 +23,7 @@
       color: #fff;
       text-align: center;
     }
-    /* Wrapper for content with padding */
+    /* Wrapper for content */
     .wrapper {
       padding: 20px;
     }
@@ -71,7 +71,7 @@
       max-width: 100%;
       overflow-wrap: break-word;
       opacity: 0;
-      /* Combine slide-in and pulsing glow */
+      /* Slide-in & pulsing glow */
       animation: slideIn 1s ease-out forwards, pulseGlow 1s infinite alternate;
     }
     .handle:hover {
@@ -118,6 +118,27 @@
     .unassigned-item:hover {
       transform: scale(1.05);
     }
+    /* Particle Effect Styles */
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 9999;
+    }
+    .particle {
+      position: absolute;
+      top: -50px;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(110vh); opacity: 0; }
+    }
     /* Responsive Adjustments */
     @media (max-width: 600px) {
       h1 {
@@ -142,9 +163,8 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>your BUDDY™️ is not your friend 🧸</h1>
+      <h1>ur BUDDY™️ is not ur friend 🧸</h1>
     </header>
-    
     <main>
       <!-- Buddy™️ Pairs -->
       <section class="buddy-container">
